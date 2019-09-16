@@ -8,6 +8,8 @@ struct node
 
 };
 
+
+void deleteNode(node**);
 node* create();
 void printlist(node*);
 node* getTail(node*);
@@ -26,6 +28,11 @@ tail = push(tail);
 cout << tail->data << endl;
 
 printlist(head);
+
+deleteNode(&head);
+
+printlist(head);
+
 
 return 0;
 
@@ -58,8 +65,10 @@ new_node->next = NULL;
 
 
 if (head == NULL){
+
 head = new_node;
 temp = new_node;
+
 }
 
 else
@@ -77,7 +86,7 @@ return head;
 void printlist(node* n){
 
 if (n == NULL){
-cout << "List empty" << endl;
+cout << "List empty";
 }
 
 while(n != NULL){
@@ -112,3 +121,23 @@ n->next = tail;
 
 return tail;
 }
+
+void deleteNode(node** headRef)
+{
+node* curr = *headRef;
+node* temp;
+
+while(curr !=NULL)
+{
+temp = curr->next;
+free(curr);
+curr = temp;
+}
+
+*headRef = NULL;
+}
+
+
+
+
+
