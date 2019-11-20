@@ -11,8 +11,8 @@ int arr[] = {1,5,8,9,10,17,17,20,24,30};
 int n,ans;
 cout << "Enter a number less than 10" << endl;
 cin >> n;
-ans = rodcut(arr,n);
-cout << ans << endl;
+
+cout << rodcut(arr,n) << endl;
 return 0;
 
 }
@@ -20,7 +20,7 @@ return 0;
 int rodcut(int arr[],int n)
 {
 int r[n+1];
-for (int i=0;i<n;i++)
+for (int i=0;i<=n;i++)
 r[i]=-1;
 
 return memorod(arr,n,r);
@@ -30,7 +30,7 @@ int memorod(int arr[],int n,int r[])
 {
 int q;
 
-if (r[n] >=0 )
+if (r[n] >0 )
 return r[n];
 
 if (n == 0)
